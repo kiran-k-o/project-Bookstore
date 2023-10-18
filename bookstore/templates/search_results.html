@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Link Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+
+    <h3 class="text-center mb-4 fw-bold text-primary" style="text-shadow: 2px 2px 4px #4CAF50;">Search Results</h3>
+    {% for every in object_list %}
+   <div class="card" style="width: 40rem;">
+        <div class="row g-0">
+            <div class="col-md-6">
+                <img src="{{ every.imageurl }}" class="img-fluid" alt="Product Image">
+            </div>
+            <div class="col-md-12">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold mb-3">{{ every.title }}</h5>
+                    <h6 class="card-title fw-bold mb-3">by {{ every.author }}</h6>
+                    <h7 class="text-muted fw-bold mb-3">Price: {{ every.price }}/-</h7>
+                    <p class="card-text fw-bold mb-4">{{ every.description }}</p>
+                </div>
+            </div>
+        </div>
+</div>
+
+    {% empty %}
+    <h5 class="text-center text-danger">Nothing Found :(</h5>
+    {% endfor %}
+
+    <!-- Link Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

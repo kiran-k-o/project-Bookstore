@@ -1,0 +1,38 @@
+{% extends "home.html" %}
+
+{% block content %}
+   <div class="container mt-5">
+    <h1 class="text-center mb-8 display-6 fw-bold" style="color: #4CAF50; text-shadow: 2px 2px 4px #4CAF50;">About The Book !!</h1>
+
+    <div class="card" style="width: 66rem;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ object.imageurl }}" class="img-fluid" alt="Product Image">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold mb-3">{{ object.title }}</h5>
+                    <h6 class="card-title fw-bold mb-3">by {{ object.author }}</h6>
+                    <h7 class="text-muted fw-bold mb-3">Price: {{ object.price }}/-</h7>
+                    <p class="card-text fw-bold mb-4">{{ object.description }}</p>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        {% if object.bookavailable %}
+                            <a href="{% url 'checkout' object.id %}" class="btn btn-success me-2">Buy Now!</a>
+                        {% else %}
+                            <a class="btn btn-danger me-2 disabled">Out of Stock :(</a>
+                        {% endif %}
+                        <a href="{% url 'add_to_cart' object.id %}" class="btn btn-primary" onclick="alert('Item added to cart')">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 text-muted">Last updated 3 mins ago</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
